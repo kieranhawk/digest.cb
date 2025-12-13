@@ -1,4 +1,4 @@
-.tree-container{position:absolute;right:3%;top:60%;transform:translateY(-50%);width:400px;height:400px;z-index:100}
+.tree-container{position:absolute;right:20%;top:60%;transform:translateY(-50%);width:400px;height:400px;z-index:100}
 .tree{position:absolute;overflow:visible;fill:none;stroke:#00cc00;stroke-width:2;stroke-dasharray:1;stroke-dashoffset:0;z-index:1;height:100%;left:50%;top:0;transform:translateX(-100%);opacity:0;transform-origin:top right;animation:opacity 2.7s forwards linear,rotate3d 5.4s infinite linear,stoke 5.4s infinite linear}
 .tree:nth-of-type(1){animation-delay:0s}
 .tree:nth-of-type(2){animation-delay:0.45s}
