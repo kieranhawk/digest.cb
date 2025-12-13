@@ -829,6 +829,22 @@ document.addEventListener('DOMContentLoaded', () => {
     btnSnow.style.display = 'flex';
   }
 
+  // Christmas lights
+  const lightsContainer = document.querySelector('.lights-container');
+  if (lightsContainer) {
+    const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+    const numLights = 20;
+    for (let i = 0; i < numLights; i++) {
+      const light = document.createElement('div');
+      light.className = 'light';
+      light.style.left = (i * (100 / numLights)) + '%';
+      light.style.top = Math.sin(i * 0.5) * 20 + 30 + 'px';
+      light.style.color = colors[i % colors.length];
+      light.style.animationDelay = (i * 0.1) + 's';
+      lightsContainer.appendChild(light);
+    }
+  }
+
   // ============ АНИМАЦИЯ СЧЕТЧИКОВ ============
   function animateCounters() {
     const counters = document.querySelectorAll('[data-count]');
