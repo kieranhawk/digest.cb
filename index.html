@@ -710,8 +710,8 @@
 <!-- Countdown Timer -->
 <script>
 function updateCountdown() {
-  const newYear = new Date('2026-01-01T00:00:00+03:00');
   const now = new Date();
+  const newYear = new Date(now.getFullYear() + 1, 0, 1, 0, 0, 0);
   const diff = newYear - now;
   
   if (diff <= 0) {
