@@ -750,7 +750,7 @@ html {
 	width: 12px;
 	height: 28px;
 	border-radius: 50%;
-	margin: 10px;
+	margin: 30px;
 	display: inline-block;
 	background: rgba(0,247,165,1);
 	box-shadow: 0px 4.67px 24px 3px rgba(0,247,165,1);
@@ -796,7 +796,7 @@ html {
 	top: -14px;
 	left: 9px;
 	position: absolute;
-	width: 32px;
+	width: 72px;
 	height: 18.67px;
 	border-bottom: solid #222 2px;
 	border-radius: 50%;
@@ -807,15 +807,15 @@ html {
 }
 
 .lightrope li:first-child {
-	margin-left: -20px;
+	margin-left: -60px;
 }
 
 @media (max-width: 768px) {
 	.lightrope li {
-		margin: 8px;
+		margin: 20px;
 	}
 	.lightrope li:after {
-		width: 28px;
+		width: 52px;
 	}
 }
 
