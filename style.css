@@ -738,11 +738,16 @@ html {
 
 .lights-wire {
 	position: absolute;
-	top: 10px;
+	top: 0;
 	left: 0;
 	width: 100%;
-	height: 2px;
-	background: rgba(255,255,255,0.2);
+	height: 60px;
+	pointer-events: none;
+}
+
+.lights-wire svg {
+	width: 100%;
+	height: 100%;
 }
 
 .light {

@@ -834,15 +834,35 @@ document.addEventListener('DOMContentLoaded', () => {
   if (lightsContainer) {
     const wire = document.createElement('div');
     wire.className = 'lights-wire';
-    lightsContainer.appendChild(wire);
+    
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     
     const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
     const numLights = 20;
+    let pathData = 'M 0,10 ';
+    
+    for (let i = 0; i <= numLights; i++) {
+      const x = (i / numLights) * 100;
+      const y = Math.sin(i * 0.5) * 20 + 30;
+      pathData += `L ${x},${y} `;
+    }
+    
+    path.setAttribute('d', pathData);
+    path.setAttribute('stroke', 'rgba(255,255,255,0.3)');
+    path.setAttribute('stroke-width', '2');
+    path.setAttribute('fill', 'none');
+    svg.appendChild(path);
+    wire.appendChild(svg);
+    lightsContainer.appendChild(wire);
+    
     for (let i = 0; i < numLights; i++) {
       const light = document.createElement('div');
       light.className = 'light';
-      light.style.left = (i * (100 / numLights)) + '%';
-      light.style.top = Math.sin(i * 0.5) * 20 + 30 + 'px';
+      const x = (i * (100 / numLights));
+      const y = Math.sin(i * 0.5) * 20 + 30;
+      light.style.left = x + '%';
+      light.style.top = y + 'px';
       light.style.color = colors[i % colors.length];
       light.style.animationDelay = (i * 0.1) + 's';
       lightsContainer.appendChild(light);
