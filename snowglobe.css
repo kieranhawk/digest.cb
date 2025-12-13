@@ -1,0 +1,39 @@
+.ground{position:absolute;left:20px;top:50%;transform:translateY(-50%);z-index:100}
+.snowglobe{width:200px;height:200px;position:relative}
+.sg-bg{width:180px;height:180px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.3),rgba(135,206,250,0.6));position:absolute;top:10px;left:10px;box-shadow:inset 0 0 30px rgba(255,255,255,0.5)}
+.grnd-snow{width:140px;height:30px;background:#fff;border-radius:50%;position:absolute;bottom:40px;left:30px;box-shadow:0 2px 5px rgba(0,0,0,0.2)}
+.snow-surface{width:100%;height:8px;background:linear-gradient(to bottom,#fff,#e0f7ff);border-radius:50%;position:absolute;top:-4px}
+.tree{position:absolute;bottom:70px;left:50px;width:40px;height:60px}
+.tree-shadow{width:40px;height:8px;background:rgba(0,0,0,0.1);border-radius:50%;position:absolute;bottom:-8px;left:0}
+.branch-bot{width:40px;height:20px;background:#2d5016;clip-path:polygon(50% 0,0 100%,100% 100%);position:absolute;bottom:0}
+.branch-bot-snow{width:100%;height:4px;background:#fff;position:absolute;top:0;border-radius:2px}
+.branch-shadow{width:100%;height:100%;background:rgba(0,0,0,0.2);clip-path:polygon(50% 0,0 100%,100% 100%);position:absolute;top:2px;left:2px;z-index:-1}
+.branch-mid{width:32px;height:18px;background:#2d5016;clip-path:polygon(50% 0,0 100%,100% 100%);position:absolute;bottom:15px;left:4px}
+.branch-mid-snow{width:100%;height:3px;background:#fff;position:absolute;top:0;border-radius:2px}
+.branch-top{width:24px;height:16px;background:#2d5016;clip-path:polygon(50% 0,0 100%,100% 100%);position:absolute;bottom:28px;left:8px}
+.branch-top-snow{width:100%;height:3px;background:#fff;position:absolute;top:0;border-radius:2px}
+.star{width:8px;height:8px;background:#ffd700;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);position:absolute;top:-8px;left:16px}
+.baubles{position:absolute;width:100%;height:100%}
+.baubles::before,.baubles::after{content:'';width:6px;height:6px;border-radius:50%;position:absolute}
+.baubles::before{background:#be0318;bottom:8px;left:8px}
+.baubles::after{background:#ffd700;bottom:20px;right:8px}
+.sm-shadow{width:30px;height:6px;background:rgba(0,0,0,0.1);border-radius:50%;position:absolute;bottom:40px;left:120px}
+.snowman{position:absolute;bottom:70px;left:120px;width:30px;height:40px}
+.snowman-bot{width:24px;height:24px;background:#fff;border-radius:50%;position:absolute;bottom:0;left:3px;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+.snowman-top{width:18px;height:18px;background:#fff;border-radius:50%;position:absolute;bottom:20px;left:6px;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+.coal{position:absolute;width:100%;height:100%}
+.coal::before,.coal::after{content:'';width:2px;height:2px;background:#000;border-radius:50%;position:absolute}
+.coal::before{top:6px;left:5px}
+.coal::after{top:6px;right:5px}
+.carrot{width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:6px solid #ff8c00;position:absolute;top:10px;left:8px}
+.falling-snow-wrap{width:180px;height:180px;border-radius:50%;position:absolute;top:10px;left:10px;overflow:hidden}
+.falling-snow{width:100%;height:100%;position:relative}
+.flakes1,.flakes2{position:absolute;width:100%;height:100%;animation:fall 8s linear infinite}
+.flakes2{animation-delay:4s}
+.flakes1 p,.flakes2 p{color:#fff;font-size:12px;position:absolute;top:-10px;left:50%;animation:sway 3s ease-in-out infinite}
+@keyframes fall{0%{transform:translateY(0)}100%{transform:translateY(180px)}}
+@keyframes sway{0%,100%{transform:translateX(-10px)}50%{transform:translateX(10px)}}
+.sg-fg{width:180px;height:90px;border-radius:0 0 90px 90px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,0.1));position:absolute;bottom:10px;left:10px;pointer-events:none}
+.stand-curved-wrap{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:80px;height:30px}
+.stand-curved{width:100%;height:100%;background:#8b4513;border-radius:0 0 40px 40px;box-shadow:0 2px 5px rgba(0,0,0,0.3)}
+@media(max-width:768px){.ground{display:none}}
