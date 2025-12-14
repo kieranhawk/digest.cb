@@ -111,66 +111,35 @@ body::-webkit-scrollbar {
 	}
 }
 .section-indicator button{
-	width: 0;
-	height: 0;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
 	border: 0;
-	background: transparent;
+	background: rgba(255,255,255,0.4);
 	cursor: pointer;
 	padding: 0;
 	transition: var(--transition);
 	position: relative;
-	opacity: 0;
 }
 .section-indicator button::before {
-	display: none;
-}
-.section-indicator button::after {
-	content: attr(data-label);
+	content: '';
 	position: absolute;
-	left: 32px;
-	top: 50%;
-	transform: translateY(-50%);
-	background: rgba(255,255,255,0.95);
-	color: #be0318;
-	padding: 8px 16px;
-	border-radius: 8px;
-	font-size: 0.85rem;
-	font-weight: 600;
-	white-space: nowrap;
+	inset: -6px;
+	border-radius: 50%;
+	background: rgba(255,255,255,0.15);
 	opacity: 0;
-	pointer-events: auto;
-	transition: all 0.3s ease;
-	box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-	cursor: pointer;
-	transition-delay: 0s;
-}
-.section-indicator button:hover::before {
-	opacity: 1;
-}
-.section-indicator button:hover::after {
-	opacity: 1;
-	left: 36px;
-	transition-delay: 0.1s;
-}
-.section-indicator button::after:hover {
-	opacity: 1;
+	transition: var(--transition);
 }
 .section-indicator button.active{
-	width: 0;
-	height: 0;
-	background: transparent;
-	box-shadow: none;
-	transform: none;
+	width: 16px;
+	height: 16px;
+	background: #fff;
+	box-shadow: 0 0 24px rgba(255,255,255,0.6), 0 8px 16px rgba(0,0,0,0.25);
+	transform: scale(1.15);
 }
 .section-indicator button:hover {
-	background: transparent;
-	transform: none;
-}
-.section-indicator button:focus-within::after {
-	opacity: 1;
-	left: 36px;
+	background: rgba(255,255,255,0.7);
+	transform: scale(1.2);
 }
 
 /* Исправлено: нормальная ширина блоков, высота, padding */
