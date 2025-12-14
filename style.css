@@ -111,24 +111,18 @@ body::-webkit-scrollbar {
 	}
 }
 .section-indicator button{
-	width: 12px;
-	height: 12px;
-	border-radius: 50%;
+	width: 0;
+	height: 0;
 	border: 0;
-	background: rgba(255,255,255,0.4);
+	background: transparent;
 	cursor: pointer;
 	padding: 0;
 	transition: var(--transition);
 	position: relative;
+	opacity: 0;
 }
 .section-indicator button::before {
-	content: '';
-	position: absolute;
-	inset: -6px;
-	border-radius: 50%;
-	background: rgba(255,255,255,0.15);
-	opacity: 0;
-	transition: var(--transition);
+	display: none;
 }
 .section-indicator button::after {
 	content: attr(data-label);
@@ -164,15 +158,15 @@ body::-webkit-scrollbar {
 	opacity: 1;
 }
 .section-indicator button.active{
-	width: 16px;
-	height: 16px;
-	background: #fff;
-	box-shadow: 0 0 24px rgba(255,255,255,0.6), 0 8px 16px rgba(0,0,0,0.25);
-	transform: scale(1.15);
+	width: 0;
+	height: 0;
+	background: transparent;
+	box-shadow: none;
+	transform: none;
 }
 .section-indicator button:hover {
-	background: rgba(255,255,255,0.7);
-	transform: scale(1.2);
+	background: transparent;
+	transform: none;
 }
 .section-indicator button:focus-within::after {
 	opacity: 1;

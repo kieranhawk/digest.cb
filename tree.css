@@ -14,5 +14,5 @@
 .tree:nth-of-type(12){animation-delay:4.95s;opacity:0.5}
 @keyframes opacity{100%{opacity:1}}
 @keyframes rotate3d{0%{transform:translateX(-100%) rotate3d(0,1,0,0deg)}100%{transform:translateX(-100%) rotate3d(0,1,0,359deg)}}
-@keyframes stoke{0%{stroke-dasharray:1;stroke-dashoffset:0}50%{stroke:#00cc00}51%{z-index:0}60%{stroke:#00cc00;z-index:0}90%{stroke:#00cc00;z-index:0}99%{z-index:0}100%{stroke:#00cc00;stroke-dashoffset:100}}
+@keyframes stoke{0%{stroke-dasharray:1;stroke-dashoffset:0}50%{stroke:#00cc00}51%{z-index:0}60%{stroke:#D32C2C;z-index:0}90%{stroke:#D32C2C;z-index:0}99%{z-index:0}100%{stroke:#00cc00;stroke-dashoffset:100}}
 @media(max-width:768px){.tree-container{display:none}}
