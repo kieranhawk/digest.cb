@@ -1018,8 +1018,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnSettings = document.createElement('button');
   btnSettings.id = 'btn-settings';
   btnSettings.className = 'control-btn';
-  btnSettings.innerHTML = '⚙️';
-  btnSettings.setAttribute('aria-label', 'Настройки');
+  btnSettings.innerHTML = 'Aa';
+  btnSettings.setAttribute('aria-label', 'Размер шрифта');
   document.body.appendChild(btnSettings);
 
   const settingsPanel = document.createElement('div');
