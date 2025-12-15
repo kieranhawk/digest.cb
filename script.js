@@ -1127,18 +1127,6 @@ document.addEventListener('DOMContentLoaded', () => {
       w.document.close();
       w.print();
     };
-
-    document.getElementById('btn-pdf').onclick = () => document.getElementById('btn-print').click();
-  }
-    
-    document.getElementById('btn-print').onclick = () => {
-      const w = window.open('', '', 'width=800,height=600');
-      const html = document.getElementById('bingo-card').cloneNode(true);
-      html.querySelector('.bingo-actions').remove();
-      w.document.write(`<!DOCTYPE html><html><head><title>Бинго</title><style>body{font-family:'Montserrat',sans-serif;margin:20px;background:white}.bingo-card{background:white;border:3px solid #be0318;border-radius:16px;padding:28px;max-width:600px;margin:0 auto}.bingo-card h3{color:#be0318;font-size:1.5rem;margin:0 0 20px 0;text-align:center}.bingo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;aspect-ratio:4/3}.bingo-cell{background:rgba(190,3,24,0.1);border:2px solid #be0318;border-radius:8px;padding:10px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:0.85rem;font-weight:600;color:#2a0808}.bingo-cell.checked{background:#be0318;color:white}</style></head><body>${html.outerHTML}</body></html>`);
-      w.document.close();
-      w.print();
-    };
     
     document.getElementById('btn-pdf').onclick = () => document.getElementById('btn-print').click();
   }
