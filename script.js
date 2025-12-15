@@ -314,7 +314,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target.tagName === 'IMG' && (e.target.closest('.card') || e.target.classList.contains('clickable-image'))) {
       e.preventDefault();
       e.stopPropagation();
-      openLightboxFromImage(e.target);
+      // Создаём временный слайд для одиночного изображения
+      const tempSlide = document.createElement('div');
+      tempSlide.className = 'carousel-slide';
+      const imgClone = e.target.cloneNode(true);
+      tempSlide.appendChild(imgClone);
+      openFullscreenCarousel([tempSlide], 0, null);
     }
   });
 
