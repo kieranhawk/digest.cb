@@ -323,6 +323,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const tempSlide = document.createElement('div');
       tempSlide.className = 'carousel-slide';
       const imgClone = e.target.cloneNode(true);
+      imgClone.style.maxWidth = '';
+      imgClone.style.width = '';
+      imgClone.style.height = '';
       tempSlide.appendChild(imgClone);
       openFullscreenCarousel([tempSlide], 0, null);
     }
