@@ -20,36 +20,49 @@ html {
 /* prevent horizontal overflow and accidental sideways scroll */
 html, body, .site { overflow-x: hidden; }
 
-/* Hide scrollbars but keep scrolling functionality */
+/* Scrollbar styling */
 html {
-	scrollbar-width: none;
-	-ms-overflow-style: none;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(255,255,255,0.5) transparent;
 }
 html::-webkit-scrollbar {
-	display: none;
+	width: 8px;
+}
+html::-webkit-scrollbar-track {
+	background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+	background: rgba(255,255,255,0.5);
+	border-radius: 4px;
+}
+html::-webkit-scrollbar-thumb:hover {
+	background: rgba(255,255,255,0.7);
 }
 body {
-	scrollbar-width: none;
-	-ms-overflow-style: none;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(255,255,255,0.5) transparent;
 }
 body::-webkit-scrollbar {
-	display: none;
+	width: 8px;
+}
+body::-webkit-scrollbar-track {
+	background: transparent;
+}
+body::-webkit-scrollbar-thumb {
+	background: rgba(255,255,255,0.5);
+	border-radius: 4px;
+}
+body::-webkit-scrollbar-thumb:hover {
+	background: rgba(255,255,255,0.7);
 }
 .site {
-	scrollbar-width: none;
-	-ms-overflow-style: none;
 	scroll-snap-type: y proximity;
 	overflow-x: hidden;
 	overflow-y: auto;
 	height: auto;
 	background: #be0318;
 }
-.site::-webkit-scrollbar {
-	display: none;
-}
 .section {
-	scrollbar-width: none;
-	-ms-overflow-style: none;
 	opacity: 0;
 	transform: translateY(30px);
 	transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -63,9 +76,6 @@ body::-webkit-scrollbar {
 .section.visible {
 	opacity: 1;
 	transform: translateY(0);
-}
-.section::-webkit-scrollbar {
-	display: none;
 }
 
 :root{
@@ -2141,111 +2151,7 @@ img {
 	}
 }
 
-/* Бинго новогодних праздников */
-.advent-menu {
-	background: linear-gradient(135deg, #faf8f3 0%, #ffffff 100%);
-	border: 3px solid #be0318;
-	border-radius: 20px;
-	padding: 20px;
-	margin: 32px auto;
-	box-shadow: 0 12px 40px rgba(0,0,0,0.2);
-	position: relative;
-	width: fit-content;
-}
-.advent-menu h3 {
-	color: #be0318;
-	font-size: 1.4rem;
-	margin: 0 0 16px 0;
-	text-align: center;
-}
-.bingo-actions {
-	display: flex;
-	gap: 8px;
-	justify-content: center;
-	margin-top: 16px;
-}
-.bingo-btn {
-	background: #be0318;
-	color: white;
-	border: none;
-	padding: 8px 16px;
-	border-radius: 8px;
-	font-size: 0.85rem;
-	font-weight: 600;
-	cursor: pointer;
-	transition: all 0.2s ease;
-}
-.bingo-btn:hover {
-	background: #a70014;
-	transform: scale(1.05);
-}
-.bingo-btn:active {
-	transform: scale(0.95);
-}
-.advent-days {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: repeat(3, 1fr);
-	gap: 10px;
-	width: 440px;
-	height: 330px;
-}
-.advent-day {
-	background: rgba(190,3,24,0.1);
-	border: 2px solid #be0318;
-	border-radius: 10px;
-	padding: 10px;
-	text-align: center;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.advent-day:hover {
-	background: rgba(190,3,24,0.2);
-	transform: scale(1.05);
-}
-.advent-day.opened {
-	background: #be0318;
-	color: white;
-}
-.advent-day-task {
-	font-size: 0.75rem;
-	color: #2a0808;
-	font-weight: 600;
-	line-height: 1.2;
-}
-.advent-day.opened .advent-day-task {
-	color: white;
-}
-.advent-day:active {
-	transform: scale(0.95);
-}
 
-@media (max-width: 768px) {
-	.advent-menu {
-		max-width: 100%;
-		padding: 16px;
-	}
-	.advent-days {
-		grid-template-columns: repeat(3, 1fr);
-		gap: 8px;
-	}
-	.advent-day {
-		padding: 8px 4px;
-	}
-	.advent-day-task {
-		font-size: 0.7rem;
-	}
-}
-
-@media (max-width: 480px) {
-	.advent-days {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
 
 /* Размеры шрифта */
 body.font-small {
