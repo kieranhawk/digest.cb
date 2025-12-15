@@ -2373,7 +2373,7 @@ body.font-large h4 {
 	top: 20px;
 	left: 20px;
 	font-size: 4rem;
-	opacity: 0.4;
+	opacity: 0.8;
 	pointer-events: none;
 	filter: drop-shadow(2px 2px 4px rgba(190,3,24,0.3));
 }
@@ -2383,7 +2383,7 @@ body.font-large h4 {
 	bottom: 20px;
 	right: 20px;
 	font-size: 4rem;
-	opacity: 0.4;
+	opacity: 0.8;
 	pointer-events: none;
 	filter: drop-shadow(2px 2px 4px rgba(190,3,24,0.3));
 }
@@ -2438,7 +2438,7 @@ body.font-large h4 {
 	background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,245,245,0.9));
 	border: 2px solid #be0318;
 	border-radius: 12px;
-	padding: 26px 12px;
+	padding: 32px 12px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -2450,7 +2450,7 @@ body.font-large h4 {
 	transition: all 0.3s ease;
 	position: relative;
 	box-shadow: 0 2px 8px rgba(190,3,24,0.1);
-	min-height: 104px;
+	min-height: 120px;
 }
 .bingo-cell:hover {
 	background: linear-gradient(135deg, rgba(190,3,24,0.15), rgba(190,3,24,0.25));
@@ -2491,9 +2491,9 @@ body.font-large h4 {
 		font-size: 1.4rem;
 	}
 	.bingo-cell {
-		padding: 21px 8px;
+		padding: 26px 8px;
 		font-size: 0.8rem;
-		min-height: 91px;
+		min-height: 105px;
 	}
 }
 @media print {
