@@ -1092,76 +1092,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ============ АДВЕНТ-КАЛЕНДАРЬ ============
-  const adventTasks = [
-    'Подготовить новогодние подарки коллегам',
-    'Украсить рабочее место',
-    'Составить список достижений года',
-    'Поздравить партнёров',
-    'Провести новогоднюю встречу команды',
+  // ============ БИНГО НОВОГОДНИХ ПРАЗДНИКОВ ============
+  const bingoTasks = [
+    'Нарезать салаты',
+    'Запустить салюты',
     'Подвести итоги года',
-    'Запланировать цели на 2026',
-    'Отправить благодарности клиентам',
-    'Организовать корпоратив',
-    'Подготовить новогоднее меню',
-    'Закрыть все задачи года',
-    'Сделать фото команды',
-    'Написать новогодние пожелания',
-    'Провести финальную планёрку',
-    'Подготовить отчёты',
-    'Убрать рабочее место',
-    'Проверить инвентарь',
-    'Обновить контакты',
-    'Архивировать документы',
-    'Подготовить презентацию итогов',
-    'Провести обучение новичков',
-    'Обновить базу клиентов',
-    'Проверить оборудование',
-    'Подготовить новогодний контент',
-    'Провести инвентаризацию',
-    'Отправить новогодние открытки',
-    'Подготовить план на январь',
-    'Провести финальную встречу',
-    'Подготовить новогодний стол',
-    'Поздравить всех с Новым Годом!',
-    'Отпраздновать Новый Год! 🎉'
+    'Загадать желание',
+    'Поздравить коллег',
+    'Спеть караоке',
+    'Посмотреть фильм',
+    'Сделать селфи',
+    'Съесть мандарин',
+    'Выпить шампанское',
+    'Станцевать',
+    'Отдохнуть 🎉'
   ];
 
-  function initAdventCalendar() {
-    const adventSection = document.querySelector('#fortune');
-    if (!adventSection) return;
+  function initBingo() {
+    const bingoSection = document.querySelector('#fortune');
+    if (!bingoSection) return;
 
-    const adventMenu = document.createElement('div');
-    adventMenu.className = 'advent-menu';
-    adventMenu.innerHTML = '<h3>🎄 Адвент-календарь "Меню новогодних праздников"</h3><div class="advent-days"></div>';
+    const bingoMenu = document.createElement('div');
+    bingoMenu.className = 'advent-menu';
+    bingoMenu.innerHTML = '<h3>🎊 Бинго Новогодних Праздников</h3><div class="advent-days"></div>';
     
-    const adventDays = adventMenu.querySelector('.advent-days');
-    const savedState = JSON.parse(localStorage.getItem('adventCalendar') || '{}');
+    const bingoGrid = bingoMenu.querySelector('.advent-days');
+    const savedState = JSON.parse(localStorage.getItem('bingo') || '{}');
 
-    adventTasks.forEach((task, index) => {
-      const day = document.createElement('div');
-      day.className = 'advent-day';
-      if (savedState[index]) day.classList.add('opened');
+    bingoTasks.forEach((task, index) => {
+      const cell = document.createElement('div');
+      cell.className = 'advent-day';
+      if (savedState[index]) cell.classList.add('opened');
       
-      day.innerHTML = `
-        <div class="advent-day-number">${index + 1}</div>
-        <div class="advent-day-task">${task}</div>
-      `;
+      cell.innerHTML = `<div class="advent-day-task" style="opacity: 1; max-height: none;">${task}</div>`;
       
-      day.addEventListener('click', () => {
-        day.classList.toggle('opened');
-        savedState[index] = day.classList.contains('opened');
-        localStorage.setItem('adventCalendar', JSON.stringify(savedState));
+      cell.addEventListener('click', () => {
+        cell.classList.toggle('opened');
+        savedState[index] = cell.classList.contains('opened');
+        localStorage.setItem('bingo', JSON.stringify(savedState));
         if (navigator.vibrate) navigator.vibrate(20);
       });
       
-      adventDays.appendChild(day);
+      bingoGrid.appendChild(cell);
     });
 
-    adventSection.querySelector('.container').insertBefore(adventMenu, adventSection.querySelector('.remix-app'));
+    bingoSection.querySelector('.container').insertBefore(bingoMenu, bingoSection.querySelector('.remix-app'));
   }
 
-  initAdventCalendar();
+  initBingo();
 
 });
 
