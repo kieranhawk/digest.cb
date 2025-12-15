@@ -2358,18 +2358,53 @@ body.font-large h4 {
 
 /* Бинго */
 .bingo-card {
-	background: rgba(255,255,255,0.95);
-	border-radius: 16px;
-	padding: 28px;
+	background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(255,245,245,0.98) 100%);
+	border-radius: 20px;
+	padding: 40px;
 	margin: 32px auto;
-	max-width: 600px;
-	box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+	max-width: 100%;
+	box-shadow: 0 12px 48px rgba(190,3,24,0.25), 0 0 0 1px rgba(190,3,24,0.1);
+	position: relative;
+	overflow: hidden;
+}
+.bingo-card::before {
+	content: '🎄';
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	font-size: 3rem;
+	opacity: 0.15;
+	pointer-events: none;
+}
+.bingo-card::after {
+	content: '🎁';
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	font-size: 3rem;
+	opacity: 0.15;
+	pointer-events: none;
 }
 .bingo-card h3 {
 	color: #be0318;
-	font-size: 1.5rem;
-	margin: 0 0 20px 0;
+	font-size: 1.8rem;
+	margin: 0 0 24px 0;
 	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	position: relative;
+	padding-bottom: 16px;
+}
+.bingo-card h3::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100px;
+	height: 3px;
+	background: linear-gradient(90deg, transparent, #be0318, transparent);
+	border-radius: 2px;
 }
 .bingo-actions {
 	display: flex;
@@ -2394,36 +2429,69 @@ body.font-large h4 {
 }
 .bingo-grid {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 10px;
-	aspect-ratio: 4/3;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 12px;
 }
 .bingo-cell {
-	background: rgba(190,3,24,0.1);
+	background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,245,245,0.9));
 	border: 2px solid #be0318;
-	border-radius: 8px;
-	padding: 10px;
+	border-radius: 12px;
+	padding: 20px 12px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	font-size: 0.85rem;
+	font-size: 0.9rem;
 	font-weight: 600;
 	color: #2a0808;
 	cursor: pointer;
 	transition: all 0.3s ease;
+	position: relative;
+	box-shadow: 0 2px 8px rgba(190,3,24,0.1);
+	min-height: 80px;
 }
 .bingo-cell:hover {
-	background: rgba(190,3,24,0.2);
-	transform: scale(1.05);
+	background: linear-gradient(135deg, rgba(190,3,24,0.15), rgba(190,3,24,0.25));
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(190,3,24,0.2);
 }
 .bingo-cell.checked {
-	background: #be0318;
+	background: linear-gradient(135deg, #be0318, #a70014);
 	color: white;
+	box-shadow: 0 4px 16px rgba(190,3,24,0.4);
+}
+.bingo-cell.checked::before {
+	content: '✓';
+	position: absolute;
+	top: 4px;
+	right: 6px;
+	font-size: 1.2rem;
+	font-weight: 900;
+	opacity: 0.9;
+}
+@media (max-width: 1024px) {
+	.bingo-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	.bingo-card {
+		padding: 32px 24px;
+	}
 }
 @media (max-width: 768px) {
 	.bingo-grid {
 		grid-template-columns: repeat(3, 1fr);
+		gap: 10px;
+	}
+	.bingo-card {
+		padding: 24px 16px;
+	}
+	.bingo-card h3 {
+		font-size: 1.4rem;
+	}
+	.bingo-cell {
+		padding: 16px 8px;
+		font-size: 0.8rem;
+		min-height: 70px;
 	}
 }
 @media print {
