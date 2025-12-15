@@ -123,15 +123,16 @@ document.addEventListener('DOMContentLoaded', () => {
   function openFullscreenCarousel(slides, startIndex, sourceCarousel) {
     const modal = document.createElement('div');
     modal.className = 'fullscreen-carousel-modal';
+    const showNav = slides.length > 1;
     modal.innerHTML = `
       <div class="fs-carousel-content">
         <button class="fs-carousel-close" aria-label="Закрыть">✕</button>
-        <button class="fs-carousel-nav fs-carousel-prev" aria-label="Предыдущее фото">‹</button>
-        <button class="fs-carousel-nav fs-carousel-next" aria-label="Следующее фото">›</button>
+        ${showNav ? '<button class="fs-carousel-nav fs-carousel-prev" aria-label="Предыдущее фото">‹</button>' : ''}
+        ${showNav ? '<button class="fs-carousel-nav fs-carousel-next" aria-label="Следующее фото">›</button>' : ''}
         <div class="fs-carousel-container"></div>
-        <div class="fs-carousel-counter">
+        ${showNav ? `<div class="fs-carousel-counter">
           <span class="fs-carousel-current">1</span> / <span class="fs-carousel-total">${slides.length}</span>
-        </div>
+        </div>` : ''}
       </div>
     `;
 
@@ -157,18 +158,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateFsSlide = () => {
       fsSlides.forEach(s => s.classList.remove('active'));
       fsSlides[currentIdx].classList.add('active');
-      currentSpan.textContent = currentIdx + 1;
+      if (currentSpan) currentSpan.textContent = currentIdx + 1;
     };
 
-    prevBtn.addEventListener('click', () => {
-      currentIdx = (currentIdx - 1 + slides.length) % slides.length;
-      updateFsSlide();
-    });
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        currentIdx = (currentIdx - 1 + slides.length) % slides.length;
+        updateFsSlide();
+      });
+    }
 
-    nextBtn.addEventListener('click', () => {
-      currentIdx = (currentIdx + 1) % slides.length;
-      updateFsSlide();
-    });
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        currentIdx = (currentIdx + 1) % slides.length;
+        updateFsSlide();
+      });
+    }
 
     closeBtn.addEventListener('click', () => {
       modal.remove();
@@ -177,8 +182,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Keyboard navigation
     const handleKeyboard = (e) => {
-      if (e.key === 'ArrowLeft') prevBtn.click();
-      if (e.key === 'ArrowRight') nextBtn.click();
+      if (prevBtn && e.key === 'ArrowLeft') prevBtn.click();
+      if (nextBtn && e.key === 'ArrowRight') nextBtn.click();
       if (e.key === 'Escape') {
         closeBtn.click();
         document.removeEventListener('keydown', handleKeyboard);
