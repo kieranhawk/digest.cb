@@ -1095,12 +1095,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // Бинго
-  console.log('Starting bingo creation');
   const bingoTasks = ['Нарезать салаты','Запустить салюты','Подвести итоги года','Загадать желание','Поздравить коллег','Спеть караоке','Посмотреть фильм','Сделать селфи','Съесть мандарин','Выпить шампанское','Станцевать','Отдохнуть 🎉'];
   const bingoSection = document.querySelector('#fortune .container');
-  console.log('bingoSection found:', bingoSection);
   if (bingoSection) {
-    console.log('Creating bingo card');
     const bingoCard = document.createElement('div');
     bingoCard.className = 'bingo-card';
     bingoCard.id = 'bingo-card';
@@ -1120,10 +1117,7 @@ document.addEventListener('DOMContentLoaded', () => {
       grid.appendChild(cell);
     });
     const remixApp = bingoSection.querySelector('.remix-app');
-    console.log('remixApp found:', remixApp);
-    console.log('Inserting bingo card before:', remixApp ? remixApp.nextSibling : 'end');
     bingoSection.insertBefore(bingoCard, remixApp ? remixApp.nextSibling : null);
-    console.log('Bingo card inserted');
 
     document.getElementById('btn-print').onclick = () => {
       const w = window.open('', '', 'width=800,height=600');
@@ -1135,8 +1129,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.getElementById('btn-pdf').onclick = () => document.getElementById('btn-print').click();
-  } else {
-    console.log('bingoSection not found');
   }
     
     document.getElementById('btn-print').onclick = () => {
