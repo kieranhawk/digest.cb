@@ -2360,33 +2360,54 @@ body.font-large h4 {
 .bingo-card {
 	background: rgba(255,255,255,0.95);
 	border-radius: 16px;
-	padding: 24px;
+	padding: 28px;
 	margin: 32px auto;
-	max-width: 500px;
+	max-width: 600px;
 	box-shadow: 0 8px 32px rgba(0,0,0,0.15);
 }
 .bingo-card h3 {
 	color: #be0318;
-	font-size: 1.3rem;
+	font-size: 1.5rem;
 	margin: 0 0 20px 0;
 	text-align: center;
+}
+.bingo-actions {
+	display: flex;
+	gap: 8px;
+	justify-content: center;
+	margin-top: 16px;
+}
+.bingo-btn {
+	background: #be0318;
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 8px;
+	font-size: 0.85rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+.bingo-btn:hover {
+	background: #a70014;
+	transform: scale(1.05);
 }
 .bingo-grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	gap: 8px;
+	gap: 10px;
 	aspect-ratio: 4/3;
 }
 .bingo-cell {
 	background: rgba(190,3,24,0.1);
 	border: 2px solid #be0318;
 	border-radius: 8px;
-	padding: 8px;
+	padding: 10px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	font-size: 0.75rem;
+	font-size: 0.85rem;
 	font-weight: 600;
 	color: #2a0808;
 	cursor: pointer;
@@ -2404,4 +2425,8 @@ body.font-large h4 {
 	.bingo-grid {
 		grid-template-columns: repeat(3, 1fr);
 	}
+}
+@media print {
+	.bingo-actions { display: none !important; }
+	.bingo-card { background: white !important; box-shadow: none !important; }
 }
