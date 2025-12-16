@@ -831,10 +831,26 @@
 
 <button id="btn-snow-toggle" aria-label="Включить/выключить снег">❄️</button>
 
+<!-- Lazy Loading Script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const images = document.querySelectorAll('img:not(.logo)');
+  const videos = document.querySelectorAll('video');
+  
+  images.forEach(img => {
+    img.loading = 'lazy';
+  });
+  
+  videos.forEach(video => {
+    video.preload = 'none';
+  });
+});
+</script>
+
 <!-- Supabase SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js?v=6"></script>
-<script src="script.js?v=6"></script>
+<script src="script.js?v=7"></script>
 <script src="quiz-voting.js?v=6"></script>
 
 <!-- Vercel Analytics -->
