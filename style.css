@@ -2505,9 +2505,9 @@ body.font-large h4 {
 .bingo-grid {
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
-	gap: 12px;
-	max-width: 900px;
+	gap: 16px;
 	margin: 0 auto;
+	width: 100%;
 }
 .bingo-cell {
 	background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,245,245,0.9));
