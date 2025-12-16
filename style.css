@@ -466,7 +466,7 @@ header.hero::before {
 	color: #2a0808;
 	padding: var(--card-padding);
 	border-radius: var(--card-radius);
-	box-shadow: 0 12px 48px rgba(190,3,24,0.25), 0 0 0 1px rgba(190,3,24,0.1);
+	box-shadow: 0 8px 24px rgba(190,3,24,0.08), 0 0 0 1px rgba(190,3,24,0.1);
 	cursor: default;
 	margin-bottom: 0;
 	font-size: 0.9rem;
@@ -488,7 +488,7 @@ header.hero::before {
 	height: 100%;
 }
 .card:hover {
-	box-shadow: 0 16px 56px rgba(190,3,24,0.3), 0 0 0 1px rgba(190,3,24,0.15);
+	box-shadow: 0 12px 32px rgba(190,3,24,0.12), 0 0 0 1px rgba(190,3,24,0.15);
 	transform: translateY(-4px) translateZ(0);
 	-webkit-transform: translateY(-4px) translateZ(0);
 }
@@ -884,16 +884,16 @@ html {
 .snowflake{
 	position: fixed;
 	top: -10vh;
-	color: #fff;
+	color: #9b0316;
 	user-select: none;
 	pointer-events: none;
 	will-change: transform, opacity;
 	font-size: 16px;
-	opacity: 0.6;
+	opacity: 0.3;
 	z-index: 0;
-	filter: drop-shadow(0 0 3px rgba(255,255,255,0.4));
+	filter: drop-shadow(0 0 2px rgba(155,3,22,0.3));
 	animation: snowFall linear infinite;
-	text-shadow: 0 0 2px rgba(255,255,255,0.5);
+	text-shadow: 0 0 1px rgba(155,3,22,0.2);
 }
 @keyframes snowFall{
 	0% {
