@@ -2506,12 +2506,14 @@ body.font-large h4 {
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
 	gap: 12px;
+	max-width: 900px;
+	margin: 0 auto;
 }
 .bingo-cell {
 	background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,245,245,0.9));
 	border: 2px solid #be0318;
 	border-radius: 12px;
-	padding: 32px 12px;
+	padding: 20px 12px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -2523,7 +2525,7 @@ body.font-large h4 {
 	transition: all 0.3s ease;
 	position: relative;
 	box-shadow: 0 2px 8px rgba(190,3,24,0.1);
-	min-height: 120px;
+	aspect-ratio: 1 / 1;
 	line-height: 1.4;
 }
 .bingo-cell:hover {
