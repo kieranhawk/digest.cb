@@ -361,7 +361,7 @@ header.hero::before {
 }
 
 .section .cards:has(.card:nth-child(2):last-child) {
-	grid-template-columns: 1fr;
+	grid-template-columns: 1fr 1fr;
 	gap: 32px;
 }
 
@@ -1856,11 +1856,11 @@ header.hero + .section::before,
 
 /* Custom layout for contents section */
 .cards-custom-layout {
-	grid-template-columns: 1fr;
+	grid-template-columns: repeat(2, 1fr);
 }
 
 .cards-custom-layout .card-full-width {
-	grid-column: 1;
+	grid-column: 1 / -1;
 }
 
 @media (max-width: 768px) {
