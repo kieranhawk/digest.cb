@@ -412,12 +412,12 @@ header.hero::before {
 
 @media (max-width: 1024px) {
 	.section .cards {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: 1fr;
 		row-gap: calc(var(--card-row-gap) - 4px);
 	}
 	
 	.section .cards:has(.card:nth-child(2):last-child) {
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr;
 	}
 }
 
@@ -1285,12 +1285,7 @@ header.hero + .section::before,
 		font-size: 20px;
 	}
 	#btn-snow-toggle {
-		display: flex !important;
-		bottom: 80px;
-		left: 16px;
-		width: 48px;
-		height: 48px;
-		font-size: 20px;
+		display: none !important;
 	}
 	.fs-carousel-nav {
 		width: 44px;
@@ -2575,4 +2570,15 @@ body.font-large h4 {
 @media print {
 	.bingo-actions { display: none !important; }
 	.bingo-card { background: white !important; box-shadow: none !important; }
+}
+
+/* Мобильная версия блока НГ */
+@media (max-width: 768px) {
+	.newyear-article {
+		flex-direction: column !important;
+		text-align: center;
+	}
+	.newyear-article img {
+		order: -1;
+	}
 }
