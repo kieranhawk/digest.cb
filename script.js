@@ -1087,12 +1087,6 @@ document.addEventListener('DOMContentLoaded', () => {
   fontItem.dataset.action = 'font';
   fontItem.innerHTML = `<span class="mobile-menu-icon">Aa</span><span class="mobile-menu-text">Размер шрифта</span>`;
   mobileMenuPanel.appendChild(fontItem);
-  
-  const snowItem = document.createElement('button');
-  snowItem.className = 'mobile-menu-item';
-  snowItem.dataset.action = 'snow';
-  snowItem.innerHTML = `<span class="mobile-menu-icon">❄️</span><span class="mobile-menu-text">Снежинки</span>`;
-  mobileMenuPanel.appendChild(snowItem);
   document.body.appendChild(mobileMenuPanel);
 
   btnMobileMenu.addEventListener('click', () => {
@@ -1114,9 +1108,6 @@ document.addEventListener('DOMContentLoaded', () => {
         searchInput.focus();
       } else if (action === 'font') {
         settingsPanel.classList.add('active');
-      } else if (action === 'snow') {
-        const btnSnow = document.getElementById('btn-snow-toggle');
-        if (btnSnow) btnSnow.click();
       } else if (sectionIdx !== undefined) {
         const idx = parseInt(sectionIdx);
         if (sections[idx]) {

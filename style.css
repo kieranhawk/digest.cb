@@ -1283,6 +1283,12 @@ header.hero + .section::before,
 	#btn-snow-toggle {
 		display: none !important;
 	}
+	.snow-container {
+		display: none !important;
+	}
+	.snowflake {
+		display: none !important;
+	}
 	.fs-carousel-nav {
 		width: 44px;
 		height: 44px;
