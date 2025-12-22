@@ -2393,6 +2393,8 @@ body.font-large h4 {
 	box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 	padding: 8px;
 	min-width: 200px;
+	max-height: calc(100vh - 120px);
+	overflow-y: auto;
 	opacity: 0;
 	pointer-events: none;
 	transform: translateY(-10px);
@@ -2423,6 +2425,12 @@ body.font-large h4 {
 	border-radius: 8px;
 	cursor: pointer;
 	transition: all 0.2s ease;
+}
+
+.mobile-menu-divider {
+	height: 1px;
+	background: rgba(190,3,24,0.2);
+	margin: 8px 0;
 }
 
 .mobile-menu-item:hover {

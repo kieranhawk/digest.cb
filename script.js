@@ -1087,7 +1087,18 @@ document.addEventListener('DOMContentLoaded', () => {
       <span class="mobile-menu-icon">Aa</span>
       <span class="mobile-menu-text">Размер шрифта</span>
     </button>
+    <div class="mobile-menu-divider"></div>
   `;
+  
+  // Добавляем навигацию по разделам
+  sections.forEach((section, idx) => {
+    const label = section.querySelector('h2')?.textContent?.trim() || `Раздел ${idx + 1}`;
+    const navItem = document.createElement('button');
+    navItem.className = 'mobile-menu-item';
+    navItem.dataset.section = idx;
+    navItem.innerHTML = `<span class="mobile-menu-text">${label}</span>`;
+    mobileMenuPanel.appendChild(navItem);
+  });
   document.body.appendChild(mobileMenuPanel);
 
   btnMobileMenu.addEventListener('click', () => {
@@ -1100,13 +1111,22 @@ document.addEventListener('DOMContentLoaded', () => {
   mobileMenuPanel.querySelectorAll('.mobile-menu-item').forEach(item => {
     item.addEventListener('click', () => {
       const action = item.dataset.action;
+      const sectionIdx = item.dataset.section;
+      
       mobileMenuPanel.classList.remove('active');
+      
       if (action === 'search') {
         searchPanel.classList.add('active');
         searchInput.focus();
       } else if (action === 'font') {
         settingsPanel.classList.add('active');
+      } else if (sectionIdx !== undefined) {
+        const idx = parseInt(sectionIdx);
+        if (sections[idx]) {
+          sections[idx].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       }
+      
       if (navigator.vibrate) navigator.vibrate(10);
     });
   });
