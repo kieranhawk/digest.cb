@@ -2574,3 +2574,14 @@ body.font-large h4 {
 		order: -1;
 	}
 }
+
+/* Широкие карточки */
+.card-wide {
+	grid-column: span 2;
+}
+
+@media (max-width: 1024px) {
+	.card-wide {
+		grid-column: span 1;
+	}
+}
