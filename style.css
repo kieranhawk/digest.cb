@@ -1266,15 +1266,7 @@ header.hero + .section::before,
 		padding: 5px 10px;
 	}
 	#btn-forward, #btn-back {
-		padding: 12px 24px;
-		font-size: 0.9rem;
-		bottom: 16px;
-	}
-	#btn-forward {
-		left: calc(50% + 10px);
-	}
-	#btn-back {
-		left: calc(50% - 140px);
+		display: none !important;
 	}
 	#btn-top {
 		display: flex !important;
