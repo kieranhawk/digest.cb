@@ -2580,7 +2580,8 @@ body.font-large h4 {
 	grid-template-columns: repeat(3, 1fr);
 }
 
-#horeca .cards .card:nth-child(n+4) {
+#horeca .cards .card:nth-child(4),
+#horeca .cards .card:nth-child(5) {
 	grid-column: span 1.5;
 }
 
@@ -2588,7 +2589,8 @@ body.font-large h4 {
 	#horeca .cards {
 		grid-template-columns: 1fr;
 	}
-	#horeca .cards .card:nth-child(n+4) {
+	#horeca .cards .card:nth-child(4),
+	#horeca .cards .card:nth-child(5) {
 		grid-column: span 1;
 	}
 }
