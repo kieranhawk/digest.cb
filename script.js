@@ -446,7 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const btn = document.createElement('button');
       btn.className = 'dot';
-      const label = sec.querySelector('h2')?.textContent?.trim() || (i === 0 ? 'Главная' : `Раздел ${i}`);
+      const label = sec.querySelector('h2')?.textContent?.trim() || (i === 0 ? 'Главная страница' : `Раздел ${i}`);
       btn.setAttribute('aria-label', label);
       
       const tooltip = document.createElement('span');
@@ -564,30 +564,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navigator.vibrate) navigator.vibrate(10);
   });
   
-  // Mobile: tap on top 50px of screen to scroll to top
-  let tapStartY = 0;
-  let tapStartTime = 0;
-  document.addEventListener('touchstart', (e) => {
-    tapStartY = e.touches[0].clientY;
-    tapStartTime = Date.now();
-  }, { passive: true });
-  
-  document.addEventListener('touchend', (e) => {
-    const tapEndY = e.changedTouches[0].clientY;
-    const tapY = (tapStartY + tapEndY) / 2;
-    const tapDuration = Date.now() - tapStartTime;
-    const tapMovement = Math.abs(tapEndY - tapStartY);
-    
-    // Tap on top 50px (status bar area), quick tap (< 300ms), minimal movement (< 10px)
-    if (tapY < 50 && tapDuration < 300 && tapMovement < 10) {
-      if (sections[0]) {
-        sections[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-      if (navigator.vibrate) navigator.vibrate(10);
-    }
-  }, { passive: true });
+  // Mobile: tap on top 50px of screen to scroll to top - DISABLED
+  // Removed to avoid conflicts with mobile menu and per user request
 
 
 
@@ -1079,26 +1057,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenuPanel = document.createElement('div');
   mobileMenuPanel.className = 'mobile-menu-panel';
   mobileMenuPanel.innerHTML = `
-    <button class="mobile-menu-item" data-action="search">
-      <span class="mobile-menu-icon">🔍</span>
-      <span class="mobile-menu-text">Поиск</span>
+    <button class="mobile-menu-item" data-section="0">
+      <span class="mobile-menu-text">🏠 Главная страница</span>
     </button>
-    <button class="mobile-menu-item" data-action="font">
-      <span class="mobile-menu-icon">Aa</span>
-      <span class="mobile-menu-text">Размер шрифта</span>
-    </button>
-    <div class="mobile-menu-divider"></div>
   `;
   
   // Добавляем навигацию по разделам
-  sections.forEach((section, idx) => {
-    const label = section.querySelector('h2')?.textContent?.trim() || `Раздел ${idx + 1}`;
+  sections.slice(1).forEach((section, idx) => {
+    const label = section.querySelector('h2')?.textContent?.trim() || `Раздел ${idx + 2}`;
     const navItem = document.createElement('button');
     navItem.className = 'mobile-menu-item';
-    navItem.dataset.section = idx;
+    navItem.dataset.section = idx + 1;
     navItem.innerHTML = `<span class="mobile-menu-text">${label}</span>`;
     mobileMenuPanel.appendChild(navItem);
   });
+  
+  const divider = document.createElement('div');
+  divider.className = 'mobile-menu-divider';
+  mobileMenuPanel.appendChild(divider);
+  
+  const searchItem = document.createElement('button');
+  searchItem.className = 'mobile-menu-item';
+  searchItem.dataset.action = 'search';
+  searchItem.innerHTML = `<span class="mobile-menu-icon">🔍</span><span class="mobile-menu-text">Поиск</span>`;
+  mobileMenuPanel.appendChild(searchItem);
+  
+  const fontItem = document.createElement('button');
+  fontItem.className = 'mobile-menu-item';
+  fontItem.dataset.action = 'font';
+  fontItem.innerHTML = `<span class="mobile-menu-icon">Aa</span><span class="mobile-menu-text">Размер шрифта</span>`;
+  mobileMenuPanel.appendChild(fontItem);
   document.body.appendChild(mobileMenuPanel);
 
   btnMobileMenu.addEventListener('click', () => {
