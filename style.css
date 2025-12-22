@@ -2577,18 +2577,23 @@ body.font-large h4 {
 
 /* Широкие карточки */
 #horeca .cards {
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(6, 1fr);
+}
+
+#horeca .cards .card {
+	grid-column: span 2;
 }
 
 #horeca .cards .card:nth-child(4),
 #horeca .cards .card:nth-child(5) {
-	grid-column: span 1.5;
+	grid-column: span 3;
 }
 
 @media (max-width: 1024px) {
 	#horeca .cards {
 		grid-template-columns: 1fr;
 	}
+	#horeca .cards .card,
 	#horeca .cards .card:nth-child(4),
 	#horeca .cards .card:nth-child(5) {
 		grid-column: span 1;
