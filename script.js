@@ -566,15 +566,20 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Mobile: tap on top 100px of screen to scroll to top
   let tapStartY = 0;
+  let tapStartTime = 0;
   document.addEventListener('touchstart', (e) => {
     tapStartY = e.touches[0].clientY;
+    tapStartTime = Date.now();
   }, { passive: true });
   
   document.addEventListener('touchend', (e) => {
     const tapEndY = e.changedTouches[0].clientY;
     const tapY = (tapStartY + tapEndY) / 2;
+    const tapDuration = Date.now() - tapStartTime;
+    const tapMovement = Math.abs(tapEndY - tapStartY);
     
-    if (tapY < 100 && window.scrollY > 300) {
+    // Tap on top 100px, quick tap (< 300ms), minimal movement (< 10px)
+    if (tapY < 100 && tapDuration < 300 && tapMovement < 10) {
       if (sections[0]) {
         sections[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
@@ -982,6 +987,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchResults = searchPanel.querySelector('.search-results');
 
   btnSearch.addEventListener('click', () => {
+    settingsPanel.classList.remove('active');
+    mobileMenuPanel.classList.remove('active');
     searchPanel.classList.toggle('active');
     if (searchPanel.classList.contains('active')) {
       searchInput.focus();
@@ -1055,8 +1062,53 @@ document.addEventListener('DOMContentLoaded', () => {
   settingsPanel.querySelector(`[data-size="${savedFontSize}"]`)?.classList.add('active');
 
   btnSettings.addEventListener('click', () => {
+    searchPanel.classList.remove('active');
+    mobileMenuPanel.classList.remove('active');
     settingsPanel.classList.toggle('active');
     if (navigator.vibrate) navigator.vibrate(10);
+  });
+
+  // ============ МОБИЛЬНОЕ МЕНЮ (3 ТОЧКИ) ============
+  const btnMobileMenu = document.createElement('button');
+  btnMobileMenu.id = 'btn-mobile-menu';
+  btnMobileMenu.className = 'control-btn mobile-menu-btn';
+  btnMobileMenu.innerHTML = '⋮';
+  btnMobileMenu.setAttribute('aria-label', 'Меню');
+  document.body.appendChild(btnMobileMenu);
+
+  const mobileMenuPanel = document.createElement('div');
+  mobileMenuPanel.className = 'mobile-menu-panel';
+  mobileMenuPanel.innerHTML = `
+    <button class="mobile-menu-item" data-action="search">
+      <span class="mobile-menu-icon">🔍</span>
+      <span class="mobile-menu-text">Поиск</span>
+    </button>
+    <button class="mobile-menu-item" data-action="font">
+      <span class="mobile-menu-icon">Aa</span>
+      <span class="mobile-menu-text">Размер шрифта</span>
+    </button>
+  `;
+  document.body.appendChild(mobileMenuPanel);
+
+  btnMobileMenu.addEventListener('click', () => {
+    searchPanel.classList.remove('active');
+    settingsPanel.classList.remove('active');
+    mobileMenuPanel.classList.toggle('active');
+    if (navigator.vibrate) navigator.vibrate(10);
+  });
+
+  mobileMenuPanel.querySelectorAll('.mobile-menu-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const action = item.dataset.action;
+      mobileMenuPanel.classList.remove('active');
+      if (action === 'search') {
+        searchPanel.classList.add('active');
+        searchInput.focus();
+      } else if (action === 'font') {
+        settingsPanel.classList.add('active');
+      }
+      if (navigator.vibrate) navigator.vibrate(10);
+    });
   });
 
   settingsPanel.querySelectorAll('.font-size-btn').forEach(btn => {
@@ -1075,11 +1127,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Закрытие панелей при клике вне их
   document.addEventListener('click', (e) => {
-    if (!searchPanel.contains(e.target) && e.target !== btnSearch) {
+    if (!searchPanel.contains(e.target) && e.target !== btnSearch && !e.target.closest('.mobile-menu-item[data-action="search"]')) {
       searchPanel.classList.remove('active');
     }
-    if (!settingsPanel.contains(e.target) && e.target !== btnSettings) {
+    if (!settingsPanel.contains(e.target) && e.target !== btnSettings && !e.target.closest('.mobile-menu-item[data-action="font"]')) {
       settingsPanel.classList.remove('active');
+    }
+    if (!mobileMenuPanel.contains(e.target) && e.target !== btnMobileMenu) {
+      mobileMenuPanel.classList.remove('active');
     }
   });
 
