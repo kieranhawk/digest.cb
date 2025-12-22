@@ -2215,20 +2215,20 @@ img {
 
 /* Размеры шрифта */
 body.font-small {
-	font-size: 14px;
+	font-size: 13px;
 }
 body.font-small .card p,
 body.font-small .card li {
-	font-size: 0.9rem;
+	font-size: 0.8rem;
 }
 body.font-small h2 {
-	font-size: 1.8rem;
+	font-size: 1.6rem;
 }
 body.font-small h3 {
-	font-size: 1.3rem;
+	font-size: 1.2rem;
 }
 body.font-small h4 {
-	font-size: 1.1rem;
+	font-size: 1rem;
 }
 
 body.font-medium {
