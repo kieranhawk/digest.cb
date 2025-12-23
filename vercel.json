@@ -1,15 +1,6 @@
 {
   "headers": [
     {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
       "source": "/index.html",
       "headers": [
         {
@@ -19,7 +10,7 @@
       ]
     },
     {
-      "source": "/assets/(.*\\.(mp4|MP4|mov))",
+      "source": "/assets/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -28,7 +19,7 @@
       ]
     },
     {
-      "source": "/assets/(.*\\.(jpg|jpeg|png|gif|webp|svg))",
+      "source": "/(.*).css",
       "headers": [
         {
           "key": "Cache-Control",
@@ -37,7 +28,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(css|js))",
+      "source": "/(.*).js",
       "headers": [
         {
           "key": "Cache-Control",
