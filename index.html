@@ -15,12 +15,11 @@
     <meta property="og:url" content="https://digest-cb.vercel.app">
     <meta property="og:type" content="website">
     <title>Корпоративный дайджест - ComplexBar</title>
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="style.css?v=9">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
     <!-- Preload для улучшения производительности -->
-    <link rel="preload" as="image" href="assets/logo.png" fetchpriority="high">
-    <link rel="preload" as="script" href="script.js?v=8">
+    <link rel="preload" as="script" href="script.js?v=9">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
@@ -51,7 +50,7 @@
     </ul>
 
     <a href="https://complexbar.ru" target="_blank" rel="noopener noreferrer">
-        <img src="assets/logo.png" class="logo" alt="Логотип ComplexBar" fetchpriority="high">
+        <img src="assets/logo.png" class="logo" alt="Логотип ComplexBar" loading="eager">
     </a>
     <div class="hero-top">
         <h1 class="fade-in">Корпоративный дайджест</h1>
@@ -641,7 +640,7 @@
                         <div class="card-carousel">
                             <div class="carousel-container">
                                 <div class="carousel-slide active"><img src="assets/WhiteRabbit.png" alt="White Rabbit"></div>
-                                <div class="carousel-slide"><video src="assets/WhiteRabbit.MP4" controls playsinline webkit-playsinline></video><button class="video-fullscreen-btn" aria-label="Полноэкранный режим">⛶</button></div>
+                                <div class="carousel-slide"><video src="assets/WhiteRabbit.MP4" controls playsinline webkit-playsinline preload="metadata" poster="assets/WhiteRabbit.png"></video></div>
                                 <button class="carousel-arrow prev" aria-label="Предыдущее">‹</button>
                                 <button class="carousel-arrow next" aria-label="Следующее">›</button>
                                 <div class="carousel-counter"><span class="carousel-current">1</span> / <span class="carousel-total">2</span></div>
@@ -679,7 +678,7 @@
                         <div class="card-carousel">
                             <div class="carousel-container">
                                 <div class="carousel-slide active"><img src="assets/Sakhalin.png" alt="Sakhalin"></div>
-                                <div class="carousel-slide"><video src="assets/Sakhalin.MP4" controls playsinline webkit-playsinline></video><button class="video-fullscreen-btn" aria-label="Полноэкранный режим">⛶</button></div>
+                                <div class="carousel-slide"><video src="assets/Sakhalin.MP4" controls playsinline webkit-playsinline preload="metadata" poster="assets/Sakhalin.png"></video></div>
                                 <button class="carousel-arrow prev" aria-label="Предыдущее">‹</button>
                                 <button class="carousel-arrow next" aria-label="Следующее">›</button>
                                 <div class="carousel-counter"><span class="carousel-current">1</span> / <span class="carousel-total">2</span></div>
@@ -694,8 +693,7 @@
                 <div class="card slide-up" tabindex="0" role="button" aria-label="Ember Minsk">
                     <article>
                         <div class="video-wrapper">
-                            <video src="assets/ember_minsk.mov" controls playsinline webkit-playsinline></video>
-                            <button class="video-fullscreen-btn" aria-label="Полноэкранный режим">⛶</button>
+                            <video src="assets/ember_minsk.mov" controls playsinline webkit-playsinline preload="metadata"></video>
                         </div>
                         <h3>🎄 Ember, Минск</h3>
                         <p>Ember Minsk — современный ресторан с тёплой зимней атмосферой, где огонь в камине, мягкое освещение и аромат ароматических коктейлей создают ощущение домашнего праздника в городском формате.</p>
@@ -706,8 +704,7 @@
                 <div class="card slide-up" tabindex="0" role="button" aria-label="Frunze Bishkek">
                     <article>
                         <div class="video-wrapper">
-                            <video src="assets/Frunze_Bishkek.MP4" controls playsinline webkit-playsinline></video>
-                            <button class="video-fullscreen-btn" aria-label="Полноэкранный режим">⛶</button>
+                            <video src="assets/Frunze_Bishkek.MP4" controls playsinline webkit-playsinline preload="metadata"></video>
                         </div>
                         <h3>❄️ Frunze, Бишкек</h3>
                         <p>Frunze Bishkek — ресторан с уютным интерьером и праздничным настроем, где каждый стол ощущается как центр тёплой зимней истории.</p>
@@ -830,7 +827,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- Supabase SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
 <script src="supabase-config.js?v=6" defer></script>
-<script src="script.js?v=8"></script>
+<script src="script.js?v=9"></script>
 <script src="quiz-voting.js?v=6" defer></script>
 
 <!-- Vercel Analytics -->

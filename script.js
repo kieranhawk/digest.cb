@@ -239,22 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initCarousels();
 
-  // Fullscreen button for videos
-  document.querySelectorAll('.video-fullscreen-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const video = btn.previousElementSibling;
-      if (video && video.tagName === 'VIDEO') {
-        const tempSlide = document.createElement('div');
-        tempSlide.className = 'carousel-slide';
-        const videoClone = video.cloneNode(true);
-        videoClone.controls = true;
-        tempSlide.appendChild(videoClone);
-        openFullscreenCarousel([tempSlide], 0, null);
-      }
-    });
-  });
-
   /* count-based layout logic removed — restore base grid behavior */
 
   // Lightbox effect for card images — delegated handler (works for dynamic content)

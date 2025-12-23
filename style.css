@@ -2983,3 +2983,17 @@ body.font-large h4 {
 @keyframes spin {
 	to { transform: rotate(360deg); }
 }
+
+/* Видео на iOS - убираем кнопку fullscreen */
+video::-webkit-media-controls-fullscreen-button {
+	display: none !important;
+}
+video::-webkit-media-controls-play-button {}
+video::-webkit-media-controls-timeline {}
+
+/* Улучшение отображения видео */
+video {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
