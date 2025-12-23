@@ -3020,3 +3020,18 @@ video {
 		min-height: 200px;
 	}
 }
+
+/* Полное скрытие overlay кнопок на видео */
+.video-wrapper {
+	position: relative !important;
+}
+.video-wrapper::before,
+.video-wrapper::after {
+	display: none !important;
+	content: none !important;
+}
+.carousel-slide::before,
+.carousel-slide::after {
+	display: none !important;
+	content: none !important;
+}
