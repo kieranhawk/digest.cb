@@ -2273,7 +2273,11 @@ body.font-large h4 {
 }
 .font-size-btn[data-size="large"] {
 	font-size: 1.2rem;
-}8;
+}
+
+/* Advent menu */
+.advent-menu {
+	background: rgba(255,255,255,0.98);
 	border-radius: 12px;
 	padding: 32px;
 	box-shadow: 0 8px 32px rgba(0,0,0,0.15);
