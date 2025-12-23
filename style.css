@@ -2675,9 +2675,7 @@ body.font-large h4 {
 	font-size: 16px;
 	font-weight: 900;
 	color: white;
-}: 1.2rem;
-	font-weight: 900;
-	opacity: 0.9;
+}
 }
 @media (max-width: 1024px) {
 	.bingo-grid {
