@@ -20,6 +20,15 @@ const throttle = (fn, limit = 300) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   
+  // Индикатор загрузки
+  const pageLoader = document.getElementById('page-loader');
+  window.addEventListener('load', () => {
+    if (pageLoader) {
+      pageLoader.classList.add('hidden');
+      setTimeout(() => pageLoader.remove(), 500);
+    }
+  });
+  
   const sections = Array.from(document.querySelectorAll('header.hero, .section'));
   let indicator = document.getElementById('section-indicator');
   let forwardBtn = document.querySelector('.cta-btn.floating');
@@ -103,6 +112,23 @@ document.addEventListener('DOMContentLoaded', () => {
       container.addEventListener('click', (e) => {
         if (e.target.tagName !== 'IMG') e.stopPropagation();
       });
+
+      // Touch swipe support for carousels
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      container.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      
+      container.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) nextBtn.click();
+          else prevBtn.click();
+        }
+      }, { passive: true });
 
       // Fullscreen carousel view - click on image to open fullscreen
       slides.forEach((slide, index) => {

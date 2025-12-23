@@ -34,6 +34,11 @@
     </style>
 </head>
 <body>
+<!-- Индикатор загрузки -->
+<div class="page-loader" id="page-loader">
+	<div class="loader-spinner"></div>
+	<div class="loader-text">Загрузка...</div>
+</div>
 <main class="site" style="background: #9b0316;">
 
 <header class="hero">
@@ -636,7 +641,7 @@
                         <div class="card-carousel">
                             <div class="carousel-container">
                                 <div class="carousel-slide active"><img src="assets/WhiteRabbit.png" alt="White Rabbit"></div>
-                                <div class="carousel-slide"><video src="assets/WhiteRabbit.MP4" controls playsinline></video><button class="video-fullscreen-btn" aria-label="Полноэкранный режим">⛶</button></div>
+                                <div class="carousel-slide"><video src="assets/WhiteRabbit.MP4" controls playsinline webkit-playsinline></video><button class="video-fullscreen-btn" aria-label="Полноэкранный режим">⛶</button></div>
                                 <button class="carousel-arrow prev" aria-label="Предыдущее">‹</button>
                                 <button class="carousel-arrow next" aria-label="Следующее">›</button>
                                 <div class="carousel-counter"><span class="carousel-current">1</span> / <span class="carousel-total">2</span></div>
@@ -674,7 +679,7 @@
                         <div class="card-carousel">
                             <div class="carousel-container">
                                 <div class="carousel-slide active"><img src="assets/Sakhalin.png" alt="Sakhalin"></div>
-                                <div class="carousel-slide"><video src="assets/Sakhalin.MP4" controls playsinline></video><button class="video-fullscreen-btn" aria-label="Полноэкранный режим">⛶</button></div>
+                                <div class="carousel-slide"><video src="assets/Sakhalin.MP4" controls playsinline webkit-playsinline></video><button class="video-fullscreen-btn" aria-label="Полноэкранный режим">⛶</button></div>
                                 <button class="carousel-arrow prev" aria-label="Предыдущее">‹</button>
                                 <button class="carousel-arrow next" aria-label="Следующее">›</button>
                                 <div class="carousel-counter"><span class="carousel-current">1</span> / <span class="carousel-total">2</span></div>
@@ -689,7 +694,7 @@
                 <div class="card slide-up" tabindex="0" role="button" aria-label="Ember Minsk">
                     <article>
                         <div class="video-wrapper">
-                            <video src="assets/ember_minsk.mov" controls playsinline></video>
+                            <video src="assets/ember_minsk.mov" controls playsinline webkit-playsinline></video>
                             <button class="video-fullscreen-btn" aria-label="Полноэкранный режим">⛶</button>
                         </div>
                         <h3>🎄 Ember, Минск</h3>
@@ -701,7 +706,7 @@
                 <div class="card slide-up" tabindex="0" role="button" aria-label="Frunze Bishkek">
                     <article>
                         <div class="video-wrapper">
-                            <video src="assets/Frunze_Bishkek.MP4" controls playsinline></video>
+                            <video src="assets/Frunze_Bishkek.MP4" controls playsinline webkit-playsinline></video>
                             <button class="video-fullscreen-btn" aria-label="Полноэкранный режим">⛶</button>
                         </div>
                         <h3>❄️ Frunze, Бишкек</h3>
